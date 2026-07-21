@@ -1,9 +1,18 @@
 // lib/prompts.ts
+import { Vibe, DirectorStyle } from "@/types";
 
 export const SCENE_COUNT = 8;
 
+interface TrendingTemplate {
+  id: string;
+  title: string;
+  vibe: Vibe;
+  director: DirectorStyle;
+  description: string;
+}
+
 // Trending templates for the landing page
-export const TRENDING_TEMPLATES = [
+export const TRENDING_TEMPLATES: TrendingTemplate[] = [
   {
     id: "epic-hero",
     title: "Epic Hero's Journey",

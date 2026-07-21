@@ -6,8 +6,8 @@ import { FaceUploader } from "@/components/FaceUploader";
 import { DirectorStyle, Vibe } from "@/types";
 import { TRENDING_TEMPLATES } from "@/lib/prompts";
 
-const VIBES: Vibe[] = ["Epic", "Comedy", "Horror", "Action", "Romance", "Noir"];
-const DIRECTORS: DirectorStyle[] = ["Nolan", "Bay", "Tarantino", "Wes Anderson", "Miyazaki"];
+const VIBES: Vibe[] = ["Epic", "Funny", "Dark", "Romantic", "SciFi", "Thriller"];
+const DIRECTORS: DirectorStyle[] = ["Nolan", "Waititi", "Fincher", "Gerwig", "Villeneuve", "Shyamalan", "Bay"];
 
 export default function CreatePage() {
   const router = useRouter();

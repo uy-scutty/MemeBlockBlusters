@@ -1,4 +1,4 @@
-export type Vibe = "Epic" | "Comedy" | "Horror" | "Action" | "Romance" | "Noir";
+export type Vibe = "Epic" | "Funny" | "Dark" | "Romantic" | "SciFi" | "Thriller";
 
 export type DirectorStyle =
   | "Nolan"
