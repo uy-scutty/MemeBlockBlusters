@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap");
+
+body {
+  @apply bg-theatre-950 text-film-paper font-body;
+}
+
+/* Film-strip sprocket motif — used down the sides of the storyboard grid.
+   Justified because scenes literally are frames on a reel. */
+.sprocket-rail {
+  background-image: radial-gradient(circle, #000 40%, transparent 41%);
+  background-size: 14px 22px;
+  background-position: center;
+}
+
+.marquee-glow {
+  text-shadow: 0 0 12px rgba(242, 193, 78, 0.5);
+}
+
+.ticket-notch {
+  mask-image: radial-gradient(circle 6px at 0 50%, transparent 99%, #000 100%),
+    radial-gradient(circle 6px at 100% 50%, transparent 99%, #000 100%);
+}
