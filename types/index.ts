@@ -1,6 +1,4 @@
-// types/index.ts
-
-export type Vibe = "Epic" | "Funny" | "Dark" | "Romantic" | "SciFi" | "Thriller";
+export type Vibe = "Epic" | "Comedy" | "Horror" | "Action" | "Romance" | "Noir";
 
 export type DirectorStyle =
   | "Nolan"
@@ -10,6 +8,54 @@ export type DirectorStyle =
   | "Villeneuve"
   | "Shyamalan"
   | "Bay";
+export interface Template {
+  id: string;
+  title: string; // "Doge in Oppenheimer"
+  thumbnail: string;
+  vibe: Vibe;
+  director: DirectorStyle;
+  promptSeed: string;
+  trending: boolean;
+}
+
+export interface SoulId {
+  id: string;
+  projectId: string;
+  label: string;
+  sourceImageUrl: string;
+  higgsfieldCharacterId: string | null;
+  status: "pending" | "ready" | "failed";
+}
+
+export interface Scene {
+  id: string;
+  projectId: string;
+  orderIdx: number; // 0-7
+  prompt: string;
+  keyframeUrl: string | null;
+  videoUrl: string | null;
+  status: "queued" | "keyframe_done" | "video_done" | "reframed" | "failed";
+  remixCount: number;
+}
+
+export interface GenerationLogEntry {
+  id: string;
+  projectId: string;
+  sceneId: string | null;
+  toolName: string;
+  status: "pending" | "success" | "error";
+  createdAt: string;
+}
+
+export interface HiggsfieldConnection {
+  userId: string;
+  accessToken: string;
+  refreshToken: string | null;
+  expiresAt: number | null; // epoch ms
+  tokenEndpoint: string;
+  clientId: string;
+  clientSecret: string | null;
+}
 
 export interface Project {
   id: string;
@@ -23,37 +69,5 @@ export interface Project {
   scenes: Scene[];
   generations: GenerationLogEntry[];
   finalVideoUrl: string | null;
-}
-
-export interface Scene {
-  id: string;
-  projectId: string;
-  orderIdx: number;
-  prompt: string;
-  voiceoverLine?: string;
-  keyframeUrl: string | null;
-  videoUrl: string | null;
-  status: "queued" | "keyframe_done" | "reframed" | "failed" | "completed";
-  remixCount: number;
-}
-
-export interface SoulId {
-  id: string;
-  sourceImageUrl: string;
-  label: string;
-}
-
-export interface GenerationLogEntry {
-  id: string;
-  projectId: string;
-  sceneId: string | null;
-  toolName: string;
-  status: "success" | "error";
-  createdAt: string;
-}
-
-export interface HiggsfieldConnection {
-  accessToken: string;
-  refreshToken: string;
-  expiresAt: number;
+  userId?: string;
 }
