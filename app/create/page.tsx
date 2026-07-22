@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FaceUploader } from "@/components/FaceUploader";
 import { DirectorStyle, Vibe } from "@/types";
@@ -10,6 +10,14 @@ const VIBES: Vibe[] = ["Epic", "Funny", "Dark", "Romantic", "SciFi", "Thriller"]
 const DIRECTORS: DirectorStyle[] = ["Nolan", "Waititi", "Fincher", "Gerwig", "Villeneuve", "Shyamalan", "Bay"];
 
 export default function CreatePage() {
+  return (
+    <Suspense fallback={null}>
+      <CreatePageInner />
+    </Suspense>
+  );
+}
+
+function CreatePageInner() {
   const router = useRouter();
   const params = useSearchParams();
   const templateId = params.get("template");
